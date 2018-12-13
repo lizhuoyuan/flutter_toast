@@ -31,7 +31,7 @@ public class FlutterToastPlugin implements MethodCallHandler {
   public void onMethodCall(MethodCall call, Result result) {
     if (call.method.equals("getPlatformVersion")) {
       result.success("Android " + android.os.Build.VERSION.RELEASE);
-    }else  if(call.method.endsWith("showToast")){
+    }else  if(call.method.equals("showToast")){
       String msg = call.argument("msg");
       int showTime = call.argument("showTime");
       Toast.makeText(activity,msg,showTime).show();
